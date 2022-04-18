@@ -1,6 +1,14 @@
 import UIKit
 
 /*
+ 
+ HELLO THERE, I am Zulqarnain Naveed. I picked these questions from One Week preparation
+ Hacker Rank path. Although the solutions passed all the test cases but
+ still feel free to optimize the solutions.
+ */
+
+
+/*
 func plusMinus(arr: [Int]) -> Void {
     // Write your code here
     var plusProportion:Float = 0
