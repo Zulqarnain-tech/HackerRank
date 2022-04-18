@@ -2,9 +2,12 @@ import UIKit
 
 /*
  
- HELLO THERE, I am Zulqarnain Naveed. I picked these questions from One Week preparation
+ Hello these, I am Zulqarnain Naveed, an iOS Engineer. I picked these questions from One Week preparation
  Hacker Rank path. Although the solutions passed all the test cases but
  still feel free to optimize the solutions.
+ 
+ HOW TO USE:
+ Just on comment the function code and call the function with required parameters.
  */
 
 
@@ -379,4 +382,5 @@ func superDigit(n: String, k: Int) -> Int {
       }
     return sum
 }
+print()
 print(superDigit(n: "148", k: 3))
