@@ -348,39 +348,88 @@ print(caesarCipher(s: "1X7T4VrCs23k4vv08D6yQ3S19G4rVP188M9ahuxB6j1tMGZs1m10ey7eU
 */
 
 
-func superDigit(n: String, k: Int) -> Int {
-    // Write your code here
-    if n.count == 1{
-        return 1
-    }
-    var myString = ""
-    var sum = 0
-    var keepLooping = true
-    for _ in 0..<k{
-        myString += n
-    }
-    if let myNumber = NumberFormatter().number(from: myString) {
-        var myInt = myNumber.intValue
-        while keepLooping{
-            sum = 0
-            while myInt >= 1{
-                let mod = myInt % 10
-                if myInt < 9{
-                    sum += myInt
-                    
-                }else{
-                    sum += mod
-                }
+//func superDigit(n: String, k: Int) -> Int {
+//    // Write your code here
+//    if n.count == 1{
+//        return 1
+//    }
+//    var myString = ""
+//    var sum = 0
+//    var keepLooping = true
+//    for _ in 0..<k{
+//        myString += n
+//    }
+//    if let myNumber = NumberFormatter().number(from: myString) {
+//        var myInt = myNumber.intValue
+//        while keepLooping{
+//            sum = 0
+//            while myInt >= 1{
+//                let mod = myInt % 10
+//                if myInt < 9{
+//                    sum += myInt
+//
+//                }else{
+//                    sum += mod
+//                }
+//
+//                myInt = Int(myInt / 10)
+//            }
+//            myInt = sum
+//            if myInt < 10{
+//                keepLooping = false
+//            }
+//        }
+//      }
+//    return sum
+//}
 
-                myInt = Int(myInt / 10)
-            }
-            myInt = sum
-            if myInt < 10{
-                keepLooping = false
-            }
+//func superDigit(n: String, k: Int) -> Int {
+//    // Write your code here
+//    let myString = Array(n)
+//    if n.count > 1{
+//        var sum = 0
+//        for ch in myString{
+//            let stringValue = String(ch)
+//            let myInt = Int(stringValue)
+//            sum += myInt ?? 0
+//        }
+//        return superDigit(n: String(sum * k), k: 1);
+//    }else{
+//        return Int(n) ?? 0
+//    }
+//}
+//print(superDigit(n: "116",k: 2))
+
+func gridChallenge(grid: [String]) -> String {
+    // Write your code here
+    var myGrid = grid
+    var verticalArray: [[String]] = []
+    for row in stride(from: 0, to: myGrid.count, by: 1){
+        var myRow = Array(myGrid[row])
+        myRow = myRow.sorted()
+        myGrid[row] = String(myRow)
+        let arrayOfLetters = myRow.map(String.init)
+        verticalArray.append(arrayOfLetters)
+    }
+    var row = 0
+    for _ in 0..<verticalArray.count{
+        for col in 0..<verticalArray.count {
+          print(verticalArray[col][row])
+            var sortedArray = verticalArray[col][row].sorted()
+            print("sortedArray \(sortedArray)")
+
         }
-      }
-    return sum
+        row += 1
+    }
+
+    return "YES"
 }
-print()
-print(superDigit(n: "148", k: 3))
+var grid = ["abcd","efgh","ijkl"]
+print(gridChallenge(grid: grid))
+ // a  b  c  x  c
+ // a  d  e  y  z
+//  e  f  g  a  d
+
+//  00   01   02   03
+//  10   11   12   13
+//  20   21   22   23
