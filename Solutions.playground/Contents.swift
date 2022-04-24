@@ -400,6 +400,10 @@ print(caesarCipher(s: "1X7T4VrCs23k4vv08D6yQ3S19G4rVP188M9ahuxB6j1tMGZs1m10ey7eU
 //}
 //print(superDigit(n: "116",k: 2))
 
+
+
+
+/*
 func gridChallenge(grid: [String]) -> String {
     // Write your code here
     var myGrid = grid
@@ -446,7 +450,6 @@ func gridChallenge(grid: [String]) -> String {
 // h  j  k
 // m  p  q
 // r  t  v
-
 
 var gir1 = [
 "wzxzwxzyzzwzyyzwzzxzyxzyzzwwyzzyzjxyxzzzyyzyyyzzzxzzzzyjzyyyzzzxyzzzyzyzwyzyyzzzzzzxyzyyyyxzxxzyxwz",
@@ -549,3 +552,59 @@ var gir1 = [
 "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
 "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"]
 print(gridChallenge(grid: gir1))
+
+*/
+
+
+
+
+
+// 2 1 5 3 4  q arrat
+
+// 1 2 3 4 5  SORTED
+
+// 2 1 3 4 5  // 1
+
+
+func minimumBribes(q: [Int]) -> Void {
+    // Write your code here
+    var bribes = 0
+    let sortedQ = q.sorted()
+    var tooChaotic = false
+    for (index,value) in q.enumerated(){
+        if value == sortedQ[index]{
+            continue
+        }
+        let position = sortedQ.firstIndex(of: value)
+        let variation = position! - index
+            if position! >= index{
+                if variation > 2{
+                                print("Too chaotic")
+                                tooChaotic = true
+                                break
+                } else if variation > 0 && variation <= 2{
+                                bribes += variation
+                            }
+            }
+    }
+    if !tooChaotic{
+        print(bribes)
+    }
+}
+
+minimumBribes(q: [1 ,2 ,5 ,3 ,7 ,8 ,6 ,4])
+//minimumBribes(q: [5 ,1 ,2 ,3 ,7 ,8 ,6 ,4])
+//minimumBribes(q: [2 ,1 ,5 ,3 ,4])
+
+// 1 2 3 4 5 6 7 8  sorted
+
+// 1 2 5 3 7 8 6 4
+
+2  // p = 2 , in = 4
+1  // p = 3 , in = 2
+2  // p = 4 , in = 6
+2   // p = 5  , in = 7
+1   // p = 6  , in = 5
+4   // p = 7   ,  3
+
+
