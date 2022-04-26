@@ -559,13 +559,7 @@ print(gridChallenge(grid: gir1))
 
 
 
-// 2 1 5 3 4  q arrat
-
-// 1 2 3 4 5  SORTED
-
-// 2 1 3 4 5  // 1
-
-
+/*
 func minimumBribes(q: [Int]) -> Void {
     // Write your code here
     var bribes = 0
@@ -577,7 +571,6 @@ func minimumBribes(q: [Int]) -> Void {
         }
         let position = sortedQ.firstIndex(of: value)
         let variation = position! - index
-            if position! >= index{
                 if variation > 2{
                                 print("Too chaotic")
                                 tooChaotic = true
@@ -585,7 +578,6 @@ func minimumBribes(q: [Int]) -> Void {
                 } else if variation > 0 && variation <= 2{
                                 bribes += variation
                             }
-            }
     }
     if !tooChaotic{
         print(bribes)
@@ -593,18 +585,45 @@ func minimumBribes(q: [Int]) -> Void {
 }
 
 minimumBribes(q: [1 ,2 ,5 ,3 ,7 ,8 ,6 ,4])
-//minimumBribes(q: [5 ,1 ,2 ,3 ,7 ,8 ,6 ,4])
-//minimumBribes(q: [2 ,1 ,5 ,3 ,4])
-
-// 1 2 3 4 5 6 7 8  sorted
-
-// 1 2 5 3 7 8 6 4
-
-2  // p = 2 , in = 4
-1  // p = 3 , in = 2
-2  // p = 4 , in = 6
-2   // p = 5  , in = 7
-1   // p = 6  , in = 5
-4   // p = 7   ,  3
+*/
 
 
+/*
+func birthdayCakeCandles(candles: [Int]) -> Int {
+    // Write your code here
+    if candles.count == 1{
+        return 1
+    }
+    let sortedHeights = candles.sorted()
+    let tallestCandle = sortedHeights[sortedHeights.count - 1]
+    var tallestCandlesCount = 0
+    for value in candles{
+        if value == tallestCandle{
+            tallestCandlesCount += 1
+        }
+    }
+    return tallestCandlesCount
+}
+
+print(birthdayCakeCandles(candles: [4,4,1,3]))
+*/
+
+
+/*
+func bonAppetit(bill: [Int], k: Int, b: Int) -> Void {
+    // Write your code here
+    var sharedBill = 0
+    for (index,item) in bill.enumerated(){
+        if index != k{
+            sharedBill += item
+        }
+    }
+    sharedBill /= 2
+    if sharedBill == b{
+        print("Bon Appetit")
+    }else if b > sharedBill{
+        print(b-sharedBill)
+    }
+}
+bonAppetit(bill: [3, 10, 2, 9], k: 1, b: 7)
+*/
